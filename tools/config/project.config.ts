@@ -46,6 +46,16 @@ export class ProjectConfig extends SeedConfig {
      }
    });
 
+   // add Material configuration to SystemJS.
+  this.addPackageBundles({
+    name:'md2',
+    path:'node_modules/md2/md2.umd.js',
+    packageMeta:{
+      main: 'index.js',
+      format:'cjs',
+      defaultExtension: 'js'
+    }
+  });
 
   }
 
