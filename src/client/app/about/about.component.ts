@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Md2Toast} from 'md2/toast/toast';
+
 /**
  * This class represents the lazy loaded AboutComponent.
  */
@@ -11,8 +11,5 @@ import {Md2Toast} from 'md2/toast/toast';
   styleUrls: ['about.component.css']
 })
 export class AboutComponent {
-  constructor(private toast: Md2Toast) { }
-    toastMe() {
-      this.toast.show('Toast message...');
- }
+
  }
