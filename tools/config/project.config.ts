@@ -13,7 +13,18 @@ export class ProjectConfig extends SeedConfig {
   constructor() {
     super();
     //this.APP_TITLE = 'Put name of your app here';
+    this.SYSTEM_CONFIG_DEV.paths['md2'] =
+      `${this.APP_BASE}node_modules/md2/md2.umd.js`;
 
+
+    this.SYSTEM_BUILDER_CONFIG.packages['md2'] = {
+        main: 'index.js',
+        defaultExtension: 'js'
+    };
+
+    this.SYSTEM_BUILDER_CONFIG.packageConfigPaths.push(
+      join('node_modules', 'md2', '*', 'package.json')
+    );
 
     /* Enable typeless compiler runs (faster) between typed compiler runs. */
     // this.TYPED_COMPILE_INTERVAL = 5;
@@ -22,7 +33,7 @@ export class ProjectConfig extends SeedConfig {
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
       /* Select a pre-built Material theme */
-     {src: '@angular/material/core/theming/prebuilt/indigo-pink.css', inject: true},
+     {src: '@angular/material/core/theming/prebuilt/deeppurple-amber.css', inject: true},
       // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
@@ -46,6 +57,15 @@ export class ProjectConfig extends SeedConfig {
      }
    });
 
+   // add Md2 configuration to SystemJS.
+  // this.addPackageBundles({
+  //   name:'md2',
+  //   path:'node_modules/md2/md2.umd.js',
+  //   packageMeta:{
+  //     main: 'index.js',
+  //     defaultExtension: 'global'
+  //   }
+  // });
 
   }
 
